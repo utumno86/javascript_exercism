@@ -1,7 +1,6 @@
 var Year = require('./leap');
 
 describe('Leap year', function() {
-
   it('is not very common', function() {
     var year = new Year(2015);
     expect(year.isLeap()).toBe(false);
@@ -23,28 +22,25 @@ describe('Leap year', function() {
   });
 
   // Feel free to enable the following tests to check some more examples
-  describe('Additional example of a leap year that', function () {
-
-    it('is not a leap year', function () {
+  describe('Additional example of a leap year that', function() {
+    it('is not a leap year', function() {
       var year = new Year(1978);
       expect(year.isLeap()).toBe(false);
     });
 
-    it('is a common leap year', function () {
+    it('is a common leap year', function() {
       var year = new Year(1992);
       expect(year.isLeap()).toBe(true);
     });
 
-    it('is skipped every 100 years', function () {
+    it('is skipped every 100 years', function() {
       var year = new Year(2100);
       expect(year.isLeap()).toBe(false);
     });
 
-    it('is reintroduced every 400 years', function () {
+    it('is reintroduced every 400 years', function() {
       var year = new Year(2400);
       expect(year.isLeap()).toBe(true);
     });
-
   });
-
 });
