@@ -6,6 +6,10 @@ function Cipher(key) {
   }
 }
 
+Cipher.prototype.encode = function(input) {
+  characters = input.split('');
+};
+
 function randomKey() {
   var key = '';
 
