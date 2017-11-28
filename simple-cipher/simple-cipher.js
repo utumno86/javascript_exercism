@@ -7,7 +7,16 @@ function Cipher(key) {
 }
 
 Cipher.prototype.encode = function(input) {
-  characters = input.split('');
+  if (input) {
+    var characters = input.split('');
+    var encoded = '';
+    for (i = 0; i < characters.length; i++) {
+      encoded += String.fromCharCode(
+        characters[i].charCodeAt(0) - 97 + (this.key[i].charCodeAt(0) - 97) + 97
+      );
+    }
+  }
+  return encoded;
 };
 
 function randomKey() {
