@@ -1,0 +1,31 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "javascript exercism",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utumno86/javascript_exercism.git"
+  },
+  "keywords": [
+    "exercism"
+  ],
+  "author": "Michael Nash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utumno86/javascript_exercism/issues"
+  },
+  "homepage": "https://github.com/utumno86/javascript_exercism#readme",
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  },
+  "dependencies": {
+    "eslint": "^4.15.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

@@ -1,9 +1,14 @@
-if (module){
+if (module) {
   module.exports = analysis;
 }
 
-function analysis(text){
-  var table = {};
+/**
+ * Function for finding the number of words in a given string
+ * @param {string} text input string
+ * @return {hashmap} table hash of number of variable in the string
+ */
+function analysis(text) {
+  let table = {};
   words = text.split(" ");
   for (i=0; i<words.length; i++){
     temp = words[i].split('\n');

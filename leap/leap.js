@@ -1,4 +1,4 @@
-var Year = function(input) {
+let Year = function(input) {
   this.year = input;
 };
 

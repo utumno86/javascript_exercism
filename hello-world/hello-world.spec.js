@@ -1,4 +1,4 @@
-var HelloWorld = require('./hello-world');
+let HelloWorld = require('./hello-world');
 
 describe('Hello World', function() {
   var helloWorld = new HelloWorld();

@@ -1,4 +1,4 @@
-var Pangram = function (input) {
+let Pangram = function(input) {
   var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
   return {
     isPangram: function () {
@@ -19,4 +19,4 @@ var Pangram = function (input) {
   }
 }
 
-module.exports = Pangram
+module.exports = Pangram;

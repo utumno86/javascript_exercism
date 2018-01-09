@@ -1,3 +1,7 @@
+/**
+*Generate a random key or take a key that is provided
+*@param {string} key the cipher key
+*/
 function Cipher(key) {
   if (key) {
     this.key = key;
@@ -8,7 +12,7 @@ function Cipher(key) {
 
 Cipher.prototype.encode = function(input) {
   if (input) {
-    var characters = input.split('');
+    let characters = input.split('');
     var encoded = '';
     for (i = 0; i < characters.length; i++) {
       encoded += String.fromCharCode(

@@ -1,4 +1,4 @@
-var Transcribe = function () {}
+let Transcribe = function () {}
 
 Transcribe.prototype.toRna = function (strand) {
   var NewStrand = strand.split('')
