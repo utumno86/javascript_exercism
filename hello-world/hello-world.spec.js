@@ -1,7 +1,7 @@
 let HelloWorld = require('./hello-world');
 
 describe('Hello World', function() {
-  var helloWorld = new HelloWorld();
+  let helloWorld = new HelloWorld();
 
   it('says hello world with no name', function() {
     expect(helloWorld.hello('')).toEqual('Hello, World!');
