@@ -1,20 +1,20 @@
 let Pangram = function(input) {
-  var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
   return {
-    isPangram: function () {
-      var pangram = true
+    isPangram: function() {
+      let pangram = true;
       if (!input) {
-        pangram = false
+        pangram = false;
       } else {
-        input = input.toLowerCase()
-        input = input.replace(/_/gi, '')
-        for (var i = 0; i < 26; i++) {
+        input = input.toLowerCase();
+        input = input.replace(/_/gi, '');
+        for (let i = 0; i < 26; i++) {
           if (!input.includes(alphabet[i])) {
-            pangram = false
+            pangram = false;
           }
         }
       }
-      return pangram
+      return pangram;
     }
   }
 }

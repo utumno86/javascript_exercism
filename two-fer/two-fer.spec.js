@@ -1,4 +1,4 @@
-var TwoFer = require('./two-fer');
+let TwoFer = require('./two-fer');
 
 describe('Two Fer', function() {
   let twoFer = new TwoFer();
