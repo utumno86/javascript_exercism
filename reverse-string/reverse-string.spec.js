@@ -7,25 +7,25 @@ describe('ReverseString', function() {
     expect(actual).toEqual(expected);
   });
 
-  xit('a word', function() {
+  it('a word', function() {
     let expected = 'tobor';
     let actual = reverseString('robot');
     expect(actual).toEqual(expected);
   });
 
-  xit('a capitalized word', function() {
+  it('a capitalized word', function() {
     let expected = 'nemaR';
     let actual = reverseString('Ramen');
     expect(actual).toEqual(expected);
   });
 
-  xit('a sentence with punctuation', function() {
+  it('a sentence with punctuation', function() {
     let expected = '!yrgnuh ma I';
     let actual = reverseString('I am hungry!');
     expect(actual).toEqual(expected);
   });
 
-  xit('a palindrome', function() {
+  it('a palindrome', function() {
     let expected = 'racecar';
     let actual = reverseString('racecar');
     expect(actual).toEqual(expected);
