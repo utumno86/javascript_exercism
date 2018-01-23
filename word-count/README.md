@@ -1,38 +1,45 @@
 # Word Count
 
-Write a program that given a phrase can count the occurrences of each word in that phrase.
+Given a phrase, count the occurrences of each word in that phrase.
 
 For example for the input `"olly olly in come free"`
 
-```plain
+```text
 olly: 2
 in: 1
 come: 1
 free: 1
 ```
 
-
 ## Setup
 
-Go through the setup instructions for JavaScript to
-install the necessary dependencies:
+Go through the setup instructions for JavaScript to install the
+ necessary dependencies:
 
-http://help.exercism.io/getting-started-with-javascript.html
+http://exercism.io/languages/javascript/installation
 
-## Making the Test Suite Pass
+## Running the test suite
 
-Execute the tests with:
+The provided test suite uses [Jasmine](https://jasmine.github.io/).
+You can install it by opening a terminal window and running the
+following command:
 
-```bash
-$ jasmine-node .
+```sh
+npm install -g jasmine
 ```
 
-In many test suites all but the first test have been skipped.
+Run the test suite from the exercise directory with:
 
-Once you get a test passing, you can unskip the next one by
-changing `xit` to `it`.
+```sh
+jasmine word-count.spec.js
+```
 
+In many test suites all but the first test have been marked "pending".
+Once you get a test passing, activate the next one by changing `xit` to `it`.
 
 ## Source
 
-The golang tour [view source](http://tour.golang.org)
+This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour.
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
