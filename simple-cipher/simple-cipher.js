@@ -11,9 +11,9 @@ function Cipher(key) {
 }
 
 Cipher.prototype.encode = function(input) {
+  let encoded = '';
   if (input) {
     let characters = input.split('');
-    var encoded = '';
     for (i = 0; i < characters.length; i++) {
       encoded += String.fromCharCode(
         characters[i].charCodeAt(0) - 97 + (this.key[i].charCodeAt(0) - 97) + 97
@@ -23,8 +23,25 @@ Cipher.prototype.encode = function(input) {
   return encoded;
 };
 
+Cipher.prototype.decode = function(input) {
+  let encoded = '';
+  if (input) {
+    let characters = input.split('');
+    for (i = 0; i < characters.length; i++) {
+      encoded += String.fromCharCode(
+        characters[i].charCodeAt(0) - 97 + (this.key[i].charCodeAt(0) - 97) + 97
+      );
+    }
+  }
+  return encoded;
+};
+
+/**
+*Generate a random key
+*@return {string} cipher key
+*/
 function randomKey() {
-  var key = '';
+  let key = '';
 
   for (i = 0; i < 20; i++) {
     key += String.fromCharCode(Math.floor(Math.random() * 26) + 97);

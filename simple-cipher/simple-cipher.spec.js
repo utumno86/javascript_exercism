@@ -14,7 +14,7 @@ describe('Random key cipher', function() {
     expect(cipher.encode('aaaaaaaaaa')).toEqual(cipher.key.substr(0, 10));
   });
 
-  xit('can decode', function() {
+  it('can decode', function() {
     expect(cipher.decode(cipher.key.substr(0, 10))).toEqual('aaaaaaaaaa');
   });
 
