@@ -9,35 +9,21 @@ class Words {
     */
     count(text) {
         let table = {};
-        let words = text.toLowerCase().split(' ');
-        for (let i = 0; i < words.length; i++) {
-            let temp = words[i].split('\n');
-            if (temp.length > 1) {
-                for (let j = 0; j < temp.length; j++) {
-                    words.push(temp[j]);
+        let words = text.replace(/\s/, ' ');
+        console.log(words);
+        words = text.toLowerCase().replace(/[¡¿.?@\/#!$%\^&\*;:{}=\-_`~()]/g, '').trim().split(' ');
+        words.forEach(function(subwords) {
+            subwords.split(',').forEach(function(word) {
+                if (word[0] === '\'' && word[word.length - 1] === '\'') {
+                    word = word.slice(1, -1);
                 }
-                words.splice(i, 1);
-            }
-        }
-        for (let i = 0; i < words.length; i++) {
-            let temp = words[i].split('\t');
-            if (temp.length > 1) {
-                for (j = 0; j < temp.length; j++) {
-                    words.push(temp[j]);
+                if (table[word]) {
+                    table[word]++;
+                } else if ( word != '') {
+                    table[word] = 1;
                 }
-                words.splice(i, 1);
-            }
-        }
-        for (let i = 0; i < words.length; i++) {
-            if (words[i] !== '') {
-                table[words[i]] = 0;
-            }
-        }
-        for (let i = 0; i < words.length; i++) {
-            if (words[i] !== '') {
-                table[words[i]]++;
-            }
-        }
+            });
+        });
         return table;
     };
 };
