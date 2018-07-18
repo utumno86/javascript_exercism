@@ -4,7 +4,10 @@
 */
 function Cipher(key) {
   if (key) {
+    if (key.toUpperCase() === key || !isNaN(key)) throw "Bad key"
     this.key = key;
+  } else if (key === '') {
+    throw "Bad key"
   } else {
     this.key = randomKey();
   }
