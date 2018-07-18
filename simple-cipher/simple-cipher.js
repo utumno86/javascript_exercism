@@ -24,16 +24,16 @@ Cipher.prototype.encode = function(input) {
 };
 
 Cipher.prototype.decode = function(input) {
-  let encoded = '';
+  let decoded = '';
   if (input) {
     let characters = input.split('');
     for (i = 0; i < characters.length; i++) {
-      encoded += String.fromCharCode(
-        characters[i].charCodeAt(0) - 97 + (this.key[i].charCodeAt(0) - 97) + 97
+      decoded += String.fromCharCode(
+        characters[i].charCodeAt(0) - 97 - (this.key[i].charCodeAt(0) - 97) + 97
       );
     }
   }
-  return encoded;
+  return decoded;
 };
 
 /**
