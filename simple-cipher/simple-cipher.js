@@ -4,10 +4,10 @@
 */
 function Cipher(key) {
   if (key) {
-    if (key.toUpperCase() === key || !isNaN(key)) throw "Bad key"
+    if (key.toUpperCase() === key || !isNaN(key)) throw new Error("Bad key")
     this.key = key;
   } else if (key === '') {
-    throw "Bad key"
+    throw new Error("Bad key")
   } else {
     this.key = randomKey();
   }
@@ -18,8 +18,18 @@ Cipher.prototype.encode = function(input) {
   if (input) {
     let characters = input.split('');
     for (i = 0; i < characters.length; i++) {
+      let keyIndex = i
+      while ( keyIndex >= this.key.length){
+        keyIndex -= this.key.length
+      }
+      let characterCode = characters[i].charCodeAt(0) - 97
+      let keyCode = this.key[keyIndex].charCodeAt(0) - 97
+      let encodedCode = characterCode + keyCode
+      while (encodedCode >= 26){
+        encodedCode -= 26
+      }
       encoded += String.fromCharCode(
-        characters[i].charCodeAt(0) - 97 + (this.key[i].charCodeAt(0) - 97) + 97
+        encodedCode + 97
       );
     }
   }
@@ -31,8 +41,14 @@ Cipher.prototype.decode = function(input) {
   if (input) {
     let characters = input.split('');
     for (i = 0; i < characters.length; i++) {
+      let characterCode = characters[i].charCodeAt(0) - 97
+      let keyCode = this.key[i].charCodeAt(0) - 97
+      let encodedCode = characterCode - keyCode
+      while (encodedCode < 0){
+        encodedCode += 26
+      }
       decoded += String.fromCharCode(
-        characters[i].charCodeAt(0) - 97 - (this.key[i].charCodeAt(0) - 97) + 97
+        encodedCode + 97
       );
     }
   }
