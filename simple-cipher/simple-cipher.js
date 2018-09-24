@@ -25,14 +25,15 @@ function decodeEncode(input, encode, cipher){
   let encodedDecodedString = ''
   if (input) {
     let characters = input.split('');
-    for (i = 0; i < characters.length; i++) {
-      let keyIndex = i
+    let index = 0
+    for (let char of characters) {
+      let keyIndex = index
       if(encode){
         while ( keyIndex >= cipher.key.length){
           keyIndex -= cipher.key.length
         }
       }
-      let characterCode = characters[i].charCodeAt(0) - 97
+      let characterCode = char.charCodeAt(0) - 97
       let keyCode = cipher.key[keyIndex].charCodeAt(0) - 97
       if (encode) {
         let encodedCode = characterCode + keyCode
@@ -51,6 +52,7 @@ function decodeEncode(input, encode, cipher){
           encodedCode + 97
         )
       }
+      index ++
     }
   }
   return encodedDecodedString
