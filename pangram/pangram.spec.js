@@ -1,48 +1,43 @@
-var Pangram = require('./pangram');
+import { isPangram } from './pangram';
 
-describe('Pangram()', function ()  {
-  it('empty sentence', function () {
-    var pangram = new Pangram('');
-    expect(pangram.isPangram()).toBe(false);
+describe('Pangram()', () => {
+  test('empty sentence', () => {
+    expect(isPangram('')).toBe(false);
   });
 
-  it('pangram with only lower case', function ()  {
-    var pangram = new Pangram('the quick brown fox jumps over the lazy dog');
-    expect(pangram.isPangram()).toBe(true);
+  test('recognizes a perfect lower case pangram', () => {
+    expect(isPangram('abcdefghijklmnopqrstuvwxyz')).toBe(true);
   });
 
-  it("missing character 'x'", function ()  {
-    var pangram = new Pangram('a quick movement of the enemy will jeopardize five gunboats');
-    expect(pangram.isPangram()).toBe(false);
+  test('pangram with only lower case', () => {
+    expect(isPangram('the quick brown fox jumps over the lazy dog')).toBe(true);
   });
 
-  it("another missing character 'x'", function () {
-    var pangram = new Pangram('the quick brown fish jumps over the lazy dog');
-    expect(pangram.isPangram()).toBe(false);
+  test("missing character 'x'", () => {
+    expect(isPangram('a quick movement of the enemy will jeopardize five gunboats')).toBe(false);
   });
 
-  it('pangram with underscores', function () {
-    var pangram = new Pangram('the_quick_brown_fox_jumps_over_the_lazy_dog');
-    expect(pangram.isPangram()).toBe(true);
+  test("another missing character, e.g. 'h'", () => {
+    expect(isPangram('five boxing wizards jump quickly at it')).toBe(false);
   });
 
-  it('pangram with numbers', function () {
-    var pangram = new Pangram('the 1 quick brown fox jumps over the 2 lazy dogs');
-    expect(pangram.isPangram()).toBe(true);
+  test('pangram with underscores', () => {
+    expect(isPangram('the_quick_brown_fox_jumps_over_the_lazy_dog')).toBe(true);
   });
 
-  it('missing letters replaced by numbers', function () {
-    var pangram = new Pangram('7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog');
-    expect(pangram.isPangram()).toBe(false);
+  test('pangram with numbers', () => {
+    expect(isPangram('the 1 quick brown fox jumps over the 2 lazy dogs')).toBe(true);
   });
 
-  it('pangram with mixed case and punctuation', function ()  {
-    var pangram = new Pangram('"Five quacking Zephyrs jolt my wax bed."');
-    expect(pangram.isPangram()).toBe(true);
+  test('missing letters replaced by numbers', () => {
+    expect(isPangram('7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog')).toBe(false);
   });
 
-  it('pangram with non-ascii characters', function ()  {
-    var pangram = new Pangram('Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.');
-    expect(pangram.isPangram()).toBe(true);
+  test('pangram with mixed case and punctuation', () => {
+    expect(isPangram('"Five quacking Zephyrs jolt my wax bed."')).toBe(true);
+  });
+
+  test('upper and lower case versions of the same character should not be counted separately', () => {
+    expect(isPangram('the quick brown fox jumps over with lazy FX')).toBe(false);
   });
 });
