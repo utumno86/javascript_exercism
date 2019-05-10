@@ -2,14 +2,16 @@
 *Generate a random key or take a key that is provided
 *@param {string} key the cipher key
 */
-function Cipher(key) {
-  if (key) {
-    if (key.toUpperCase() === key || !isNaN(key)) throw new Error('Bad key')
-    this.key = key
-  } else if (key === '') {
-    throw new Error('Bad key')
-  } else {
-    this.key = randomKey()
+export class  Cipher {
+  constructor(key) {
+    if (key) {
+      if (key.toUpperCase() === key || !isNaN(key)) throw new Error('Bad key')
+      this.key = key
+    } else if (key === '') {
+      throw new Error('Bad key')
+    } else {
+      this.key = randomKey()
+    }
   }
 }
 
@@ -65,11 +67,9 @@ function decodeEncode(input, encode, cipher){
 function randomKey() {
   let key = ''
 
-  for (i = 0; i < 101; i++) {
+  for ( let i = 0; i < 101; i++) {
     key += String.fromCharCode(Math.floor(Math.random() * 26) + 97)
   }
 
   return key.toLowerCase()
 }
-
-module.exports = Cipher;
