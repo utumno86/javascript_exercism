@@ -20,33 +20,37 @@ each nucleotide with its complement:
 
 ## Setup
 
-Go through the setup instructions for JavaScript to install the
- necessary dependencies:
+Go through the setup instructions for Javascript to install the necessary
+dependencies:
 
-http://exercism.io/languages/javascript/installation
+[https://exercism.io/tracks/javascript/installation](https://exercism.io/tracks/javascript/installation)
 
-## Running the test suite
+## Requirements
 
-The provided test suite uses [Jasmine](https://jasmine.github.io/).
-You can install it by opening a terminal window and running the
-following command:
+Install assignment dependencies:
 
-```sh
-npm install -g jasmine
+```bash
+$ npm install
 ```
 
-Run the test suite from the exercise directory with:
+## Making the test suite pass
 
-```sh
-jasmine rna-transcription.spec.js
+Execute the tests with:
+
+```bash
+$ npm test
 ```
 
-In many test suites all but the first test have been marked "pending".
-Once you get a test passing, activate the next one by changing `xit` to `it`.
+In the test suites all tests but the first have been skipped.
+
+Once you get a test passing, you can enable the next one by changing `xtest` to
+`test`.
 
 ## Source
 
-Rosalind [http://rosalind.info/problems/rna](http://rosalind.info/problems/rna)
+Hyperphysics [http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html](http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
+It's possible to submit an incomplete solution so you can see how others have
+completed the exercise.

@@ -1,6 +1,4 @@
-let Transcribe = function() { };
-
-Transcribe.prototype.toRna = function(strand) {
+export const toRna = (strand) => {
     let NewStrand = strand.split('');
     let transcription = {'C': 'G', 'G': 'C', 'A': 'U', 'T': 'A'};
     return NewStrand.map(function(element) {
@@ -11,5 +9,3 @@ Transcribe.prototype.toRna = function(strand) {
         }
     }).join('');
 };
-
-module.exports = Transcribe;
