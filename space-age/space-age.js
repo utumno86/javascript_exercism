@@ -1,8 +1,3 @@
-export const age = (planet, seconds) => {
-  const orbital_period = ORBITAL_PERIODS[planet]
-  return parseFloat((seconds / orbital_period / EARTH_YEAR_SECONDS).toFixed(2))
-};
-
 const ORBITAL_PERIODS = {
   earth: 1.00,
   mercury: 0.2408467,
@@ -15,3 +10,8 @@ const ORBITAL_PERIODS = {
 }
 
 const EARTH_YEAR_SECONDS = 31557600
+
+export const age = (planet, seconds) => {
+  const orbital_period = ORBITAL_PERIODS[planet]
+  return parseFloat((seconds / orbital_period / EARTH_YEAR_SECONDS).toFixed(2))
+};
